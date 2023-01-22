@@ -6,19 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/background1"
+        tools:ignore="MissingConstraints" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="10dp"
+        android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
         <TextView
+            android:id="@+id/fill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fill 2 of 3 options"
-            android:textSize="20dp"
             android:gravity="center_horizontal"
+            android:text="Fill 2 out of 3 options"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,27 +36,27 @@
             android:id="@+id/dpi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:hint="DPI"
             android:inputType="number"
-            android:layout_margin="10dp"
             android:textSize="20dp" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sens"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:hint="Sensitivity"
             android:inputType="numberDecimal"
-            android:layout_margin="10dp"
             android:textSize="20dp" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edpi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:hint="eDPI"
             android:inputType="number"
-            android:layout_margin="10dp"
             android:textSize="20dp" />
 
         <com.google.android.material.button.MaterialButton
@@ -57,9 +65,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:text="Calculate" />
+            android:backgroundTint="@color/yellow"
+            android:text="Calculate"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,6 +80,7 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="154dp"
         tools:layout_editor_absoluteY="0dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,6 +110,18 @@
                 android:layout_height="wrap_content"
                 android:text="Your eDPI:"
                 android:textSize="20dp" />
+
+
         </LinearLayout>
+
+
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
