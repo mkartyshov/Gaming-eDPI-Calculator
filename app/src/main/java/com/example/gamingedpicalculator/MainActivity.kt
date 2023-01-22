@@ -49,9 +49,9 @@ class MainActivity : AppCompatActivity() {
                 sensVal = (edpiVal.toDouble()/dpiVal.toDouble())
             }
 
-            rdpi.text = dpiVal.toString()
-            rsens.text = sensVal.toString()
-            redpi.text = edpiVal.toString()
+            rdpi.text = "Your DPI: $dpiVal"
+            rsens.text = "Your sensitivity: $sensVal"
+            redpi.text = "Your eDPI: $edpiVal"
         }
     }
 }
