@@ -1,12 +1,15 @@
 package com.example.gamingedpicalculator
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -19,9 +22,6 @@ class MainActivity : AppCompatActivity() {
         val edpi = findViewById<TextInputEditText>(R.id.edpi)
 
         val calculate = findViewById<Button>(R.id.calculate)
-
-        val hello = findViewById<TextView>(R.id.fill)
-        hello.setTextColor(Color.WHITE)
 
         calculate.setOnClickListener {
             if (((dpi.text.toString().isEmpty() && sens.text.toString().isEmpty()) ||
@@ -68,9 +68,16 @@ class MainActivity : AppCompatActivity() {
         } else {
             edpiVal = edpi.text.toString().toInt()
             dpiVal = dpi.text.toString().toInt()
-            sensVal = (edpiVal.toDouble()/dpiVal.toDouble())
+            sensVal = (edpiVal.toDouble()/dpiVal * 10000).roundToInt().toDouble() / 10000
         }
         hello.setTextColor(Color.WHITE)
+
+        closeKeyBoard()
+
+        dpi.setText("")
+        sens.setText("")
+        edpi.setText("")
+
         rdpi.text = "Your DPI: $dpiVal"
         rsens.text = "Your sensitivity: $sensVal"
         redpi.text = "Your eDPI: $edpiVal"
@@ -87,6 +94,8 @@ class MainActivity : AppCompatActivity() {
         val rsens = findViewById<TextView>(R.id.resultsens)
         val redpi = findViewById<TextView>(R.id.resultedpi)
 
+        closeKeyBoard()
+
         hello.setTextColor(Color.RED)
 
         dpi.setText("")
@@ -96,5 +105,13 @@ class MainActivity : AppCompatActivity() {
         rdpi.text = "Your DPI:"
         rsens.text = "Your sensitivity:"
         redpi.text = "Your eDPI:"
+    }
+
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }

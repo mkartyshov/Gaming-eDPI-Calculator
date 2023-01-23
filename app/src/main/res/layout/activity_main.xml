@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <ImageView
@@ -27,6 +28,7 @@
             android:gravity="center_horizontal"
             android:text="Fill 2 out of 3 options"
             android:textSize="20dp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +40,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="DPI"
+            android:textColorHint="@color/almost_yellow"
             android:inputType="number"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@color/yellow"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sens"
@@ -47,8 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Sensitivity"
+            android:textColorHint="@color/almost_yellow"
             android:inputType="numberDecimal"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@color/yellow"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edpi"
@@ -56,8 +62,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="eDPI"
+            android:textColorHint="@color/almost_yellow"
             android:inputType="number"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@color/yellow"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calculate"
@@ -95,21 +103,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Your DPI:"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/resultsens"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Your sensitivity:"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/resultedpi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Your eDPI:"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
